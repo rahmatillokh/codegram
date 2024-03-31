@@ -36,7 +36,7 @@ const MessageInput = () => {
 
   return (
     <form className="mt-auto relative" onSubmit={handleSubmit}>
-      <div className="w-full relative">
+      <div className="w-full mb-5 relative">
         <input
           type="text"
           value={inpValue}
