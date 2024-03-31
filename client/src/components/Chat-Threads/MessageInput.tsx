@@ -55,10 +55,7 @@ const MessageInput = () => {
 
       {showEmojie && (
         <div className="absolute bottom-full">
-          <Picker
-            onEmojiClick={onEmojiClick}
-            theme={theme === "dark" ? "dark" : "light"}
-          />
+          <Picker onEmojiClick={onEmojiClick} />
         </div>
       )}
 

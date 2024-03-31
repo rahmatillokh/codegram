@@ -7,7 +7,7 @@ const nextConfig = {
     return [
       {
         source: "/:path*",
-        destination: "http://localhost:8000/:path*",
+        destination: "https://codegram-f640.onrender.com/:path*",
       },
     ];
   },
