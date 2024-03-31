@@ -13,7 +13,7 @@ const ChatList = ({ mySelf }: { mySelf: userProps }) => {
     shallow
   );
 
-  const socket = io("http://localhost:8000");
+  const socket = io("https://codegram-f640.onrender.com");
 
   useEffect(() => {
     socket.on("new-user", () => {

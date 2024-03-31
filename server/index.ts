@@ -12,7 +12,11 @@ const app = express();
 const server = http.createServer(app);
 const { PORT } = process.env || 8000;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://codegram-ecru.vercel.app",
+  })
+);
 app.use(express.json());
 app.use("/", userRoutes);
 

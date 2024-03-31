@@ -21,7 +21,7 @@ const MessageInput = () => {
   const selectedUser = useSelectedUser((state) => state.selectedUser);
   const [cookie, setCookie] = useCookies(["user"]);
 
-  const socket = io("http://localhost:8000");
+  const socket = io("https://codegram-f640.onrender.com");
 
   function onEmojiClick(emojiObject: { emoji: string }) {
     setInpValue(inpValue + emojiObject.emoji);

@@ -19,7 +19,7 @@ const MessagesList = () => {
   );
 
   const [parent] = useAutoAnimate();
-  const socket = io("http://localhost:8000");
+  const socket = io("https://codegram-f640.onrender.com");
 
   socket.on("refresh", () => {
     fetchMessages(sender, reciver, setMessages);

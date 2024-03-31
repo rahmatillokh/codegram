@@ -8,7 +8,7 @@ import { io } from "socket.io-client";
 
 const CallBtn = () => {
   const router = useRouter();
-  const socket = io("http://localhost:8000");
+  const socket = io("https://codegram-f640.onrender.com");
   const [cookie] = useCookies(["user"]);
   const selectedUser = useSelectedUser((state) => state.selectedUser);
   const myUser = useUser((state) => state.myUser);
