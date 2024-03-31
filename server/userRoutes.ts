@@ -5,15 +5,25 @@ import { User } from "./userModel";
 const router = Router();
 
 router.post("/auth", async (req: Request, res: Response) => {
-  const user = new User(req.body);
   try {
-    await user.save();
-    const accessToken = jwt.sign(
-      user.toObject(),
-      process.env.ACCESS_TOKEN_SECRET!
-    );
-    res.setHeader("Set-Cookie", `user=${accessToken}; Path=/`);
-    res.send(user);
+    const exist = await User.findOne({ email: req.body.email });
+    if (exist) {
+      const accessToken = jwt.sign(
+        exist.toObject(),
+        process.env.ACCESS_TOKEN_SECRET!
+      );
+      res.setHeader("Set-Cookie", `user=${accessToken}; Path=/`);
+      res.send(exist);
+    } else {
+      const user = new User(req.body);
+      await user.save();
+      const accessToken = jwt.sign(
+        user.toObject(),
+        process.env.ACCESS_TOKEN_SECRET!
+      );
+      res.setHeader("Set-Cookie", `user=${accessToken}; Path=/`);
+      res.send(user);
+    }
   } catch (error) {
     console.log(error);
   }
